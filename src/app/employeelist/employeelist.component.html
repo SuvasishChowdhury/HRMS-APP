@@ -1,0 +1,23 @@
+<p>employeelist works!</p>
+<div class="content">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Card No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employeeListForPagination" (click) = "selectedEmp(emp.id)">
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.cardNo}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage" (page)="pageChanged($event)">
+        
+    </mat-paginator>
+</div>

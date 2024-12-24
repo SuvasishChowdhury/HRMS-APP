@@ -1,0 +1,26 @@
+<p>employeeinfo works!</p>
+
+<div *ngIf="employee">
+    <table>
+        <tbody>
+            <tr>
+                <td>Name:</td><td>{{ employee.name}}</td>
+            </tr>
+            <tr>
+                <td>Card No:</td><td>{{ employee.cardNo }}</td>
+            </tr>
+            <tr>
+                <td>Father Name:</td><td>{{ employee.fatherName }}</td>
+            </tr>
+            <tr>
+                <td>Mother Name:</td><td>{{ employee.motherName }}</td>
+            </tr>
+            <tr>
+                <td>Gender:</td><td>{{ employee.gender }}</td>
+            </tr>
+            <tr>
+                <td>DOB:</td><td>{{ employee.dob }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

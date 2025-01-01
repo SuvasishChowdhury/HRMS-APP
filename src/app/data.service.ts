@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Employee } from './employee';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-const appUrl = 'https://localhost:7217/api';
+const appUrl = 'http://hrapi.beacontech.xyz/api';
 
 @Injectable({
   providedIn: 'root'

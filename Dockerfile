@@ -20,7 +20,7 @@ RUN ng build --configuration production
 FROM nginx:alpine
 
 # Copy the build output to the Nginx HTML directory
-COPY --from=build /app/dist/hrapp /usr/share/nginx/html
+COPY --from=build /app/dist/hrapp/browser /usr/share/nginx/html
 
 # Copy a custom Nginx configuration file if needed
 # COPY nginx.conf /etc/nginx/conf.d/default.conf

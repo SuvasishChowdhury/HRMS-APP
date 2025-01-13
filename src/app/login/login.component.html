@@ -1,0 +1,14 @@
+<p>login works!</p>
+<div class="login-card">
+
+    <div class="card-title">
+        <h1>Login</h1>
+        <span>You don't have an account? <a routerLink="/signup">Sign up</a></span>
+    </div>
+    <form class="form-group" [formGroup]="logInfo" (ngSubmit)="onSubmit()">
+        <input name="name" type="text" formControlName="name" placeholder="name">
+        <input type="text" formControlName="password" placeholder="password">
+        <button>Submit</button>
+    </form>
+
+</div>

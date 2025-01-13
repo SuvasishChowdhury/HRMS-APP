@@ -6,8 +6,8 @@ import { JWTTokenResponse } from './jwttoken-response';
 import { Login } from './login';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-// const appUrl = 'http://hrapi.beacontech.xyz/api';
-const appUrl = 'https://localhost:7133/api';
+const appUrl = 'http://hrapi.beacontech.xyz/api';
+// const appUrl = 'https://localhost:7133/api';
 
 @Injectable({
   providedIn: 'root'

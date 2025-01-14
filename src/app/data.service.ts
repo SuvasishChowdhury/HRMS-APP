@@ -35,9 +35,7 @@ export class DataService {
     return this.http.get<Employee>(`${appUrl}/hrms/${id}`);
   }
   public getLoginInfo(login:Login) : Observable<JWTTokenResponse>{
-    // return this.http.get<JWTTokenResponse>(`${appUrl}/authentication/${login.name}`);
     return this.http.post<JWTTokenResponse>(`${appUrl}/authentication/login/`,login);
-    // return this.http.get<JWTTokenResponse>(`${appUrl}/Authentication/login/${login}`);
   }
   public getEmployeeById(id: number){
     this.getEmployeeList().subscribe(s=> this.employee == s);

@@ -1,23 +1,71 @@
-<p>employeelist works!</p>
-<div class="content">
-
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Card No</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let emp of employeeListForPagination" (click) = "selectedEmp(emp.id)">
-                <td>{{emp.id}}</td>
-                <td>{{emp.name}}</td>
-                <td>{{emp.cardNo}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage" (page)="pageChanged($event)">
-        
-    </mat-paginator>
+<div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <h1 class="m-0">Employee List</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                      </ol>
+                    </div><!-- /.col -->
+                  </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+              </div>
+              <!-- /.content-header -->
+               <section class="content">
+                <div class="container-fluid">
+                                    <!-- TABLE: LATEST ORDERS -->
+                <div class="card">
+                    <div class="card-header border-transparent">
+                      <h3 class="card-title">Employee List</h3>
+      
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table m-0">
+                          <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Card No</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let emp of employeeListForPagination" (click) = "selectedEmp(emp.id)">
+                                  <td>{{emp.id}}</td>
+                                  <td>{{emp.name}}</td>
+                                  <td>{{emp.cardNo}}</td>
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- /.table-responsive -->
+                    </div>
+                    
+                    <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage" (page)="pageChanged($event)">
+                              
+                    </mat-paginator>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Add New Employee</a>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">Sell All Employee</a>
+                    </div>
+                    <!-- /.card-footer -->
+                  </div>
+                  <!-- /.card -->
+                </div>
+               </section>
 </div>

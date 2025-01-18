@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
 import { LogoutComponent } from './logout/logout.component';
+import { LayoutComponent } from './layout/layout.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LogoutComponent } from './logout/logout.component';
     EmployeelistComponent,
     EmployeeinfoComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    LayoutComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

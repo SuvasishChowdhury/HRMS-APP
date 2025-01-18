@@ -37,7 +37,7 @@ export class LoginComponent {
         this.jwt = data;
         if(this.jwt.token != ''){
           localStorage.setItem('jwtToken', this.jwt.token);
-          this.router.navigate(['/employeelist']);
+          this.router.navigate(['layout/employeelist']);
         }
       }, err => {
         console.log(err.message);

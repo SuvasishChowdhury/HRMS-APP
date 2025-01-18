@@ -1,14 +1,22 @@
-<p>login works!</p>
-<div class="login-card">
 
-    <div class="card-title">
-        <h1>Login</h1>
-        <span>You don't have an account? <a routerLink="/signup">Sign up</a></span>
+<div>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
     <form class="form-group" [formGroup]="logInfo" (ngSubmit)="onSubmit()">
-        <input name="name" type="text" formControlName="name" placeholder="name">
-        <input type="text" formControlName="password" placeholder="password">
-        <button>Submit</button>
-    </form>
+        <h3>Login Here</h3>
 
+        <label for="name">Username</label>
+        <input name="name" type="text" formControlName="name" placeholder="name">
+
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" placeholder="password">
+
+        <button style="color: black;">Log In</button>
+        <!-- <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div> -->
+    </form>
 </div>

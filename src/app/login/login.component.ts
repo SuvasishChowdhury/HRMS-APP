@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Login } from '../login';
 import { DataService } from '../data.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { JWTTokenResponse } from '../jwttoken-response';
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent {
     username: '',
     password: ''
   }
-  constructor(private service: DataService, private router : Router){}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private service: DataService, private router : Router){}
   ngOnInit(){
 
   }
@@ -35,7 +36,7 @@ export class LoginComponent {
       this.service.getLoginInfo(this.login)
       .subscribe((data: any)=>{
         this.jwt = data;
-        if(this.jwt.token != ''){
+        if(this.jwt.token != '' && isPlatformBrowser(this.platformId)){
           localStorage.setItem('jwtToken', this.jwt.token);
           this.router.navigate(['layout/employeelist']);
         }

@@ -35,18 +35,11 @@ export class LoginComponent {
       this.service.getLoginInfo(this.login)
       .subscribe((data: any)=>{
         this.jwt = data;
-<<<<<<< HEAD
         if(this.jwt!.token != ''){
           if(isPlatformBrowser(this.platformId)){
             localStorage.setItem('jwtToken', this.jwt!.token);
             localStorage.setItem('employeeId', this.jwt!.employeeId);
             this.router.navigate(['layout/dashboard']);
-=======
-        if(this.jwt.token != ''){
-          if(isPlatformBrowser(this.platformId)){
-            localStorage.setItem('jwtToken', this.jwt.token);
-            this.router.navigate(['layout/employeelist']);
->>>>>>> 614e0b97b5e17389f78be1a6845ddf3af6be664c
           }
         }
       }, err => {

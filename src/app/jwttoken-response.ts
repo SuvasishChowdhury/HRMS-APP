@@ -1,3 +1,5 @@
 export interface JWTTokenResponse {
-    token : string
+    token : string,
+    userId: string,
+    employeeId: string
 }

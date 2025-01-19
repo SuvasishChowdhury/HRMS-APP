@@ -36,9 +36,11 @@ export class LoginComponent {
       this.service.getLoginInfo(this.login)
       .subscribe((data: any)=>{
         this.jwt = data;
-        if(this.jwt.token != '' && isPlatformBrowser(this.platformId)){
-          localStorage.setItem('jwtToken', this.jwt.token);
-          this.router.navigate(['layout/employeelist']);
+        if(this.jwt.token != ''){
+          if(isPlatformBrowser(this.platformId)){
+            localStorage.setItem('jwtToken', this.jwt.token);
+            this.router.navigate(['layout/employeelist']);
+          }
         }
       }, err => {
         console.log(err.message);

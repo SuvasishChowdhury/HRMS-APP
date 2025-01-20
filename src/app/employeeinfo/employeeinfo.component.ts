@@ -10,15 +10,8 @@ import { DataService } from '../data.service';
 export class EmployeeinfoComponent {
 
   public empInfo : any;
-  public employee : Employee = {
-    id : 0,
-    name : '',
-    cardNo: '',
-    fatherName: '',
-    motherName: '',
-    gender: '',
-    dob: ''
-  }
+  public employee : Employee | null = null;
+  
   constructor(private service : DataService){}
 
   ngOnInit() : void{

@@ -5,5 +5,6 @@ export interface Employee {
     fatherName : string;
     motherName : string;
     gender : string;
-    dob : string
+    dob : string;
+    image: string
 }

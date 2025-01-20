@@ -5,9 +5,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { JWTTokenResponse } from './jwttoken-response';
 import { Login } from './login';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Dashboardinfo } from './dashboardinfo';
 
-const appUrl = 'http://hrapi.beacontech.xyz/api';
-// const appUrl = 'https://localhost:7133/api';
+// const appUrl = 'http://hrapi.beacontech.xyz/api';
+const appUrl = 'https://localhost:7133/api';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,9 @@ export class DataService {
   public getEmployeeById(id: number){
     this.getEmployeeList().subscribe(s=> this.employee == s);
     return this.employee.find(item=> item.id == id);
+  }
+
+  public getDashbordInfo(id: number): Observable<Dashboardinfo>{
+    return this.http.get<Dashboardinfo>(`${appUrl}/hrms/dashboard/${id}`)
   }
 }

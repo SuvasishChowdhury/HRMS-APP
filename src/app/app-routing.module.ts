@@ -6,6 +6,7 @@ import { AuthGuard } from './auth.guard';
 import path from 'path';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeeinfoComponent } from './employeeinfo/employeeinfo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // Default route
@@ -17,6 +18,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },   // Child components
       { path: 'employeelist', component: EmployeelistComponent },
+      { path: 'employeeinfo', component: EmployeeinfoComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Default child route
     ],
   },

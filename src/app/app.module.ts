@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { AuthInterceptor } from './auth.interceptor';
 import { LogoutComponent } from './logout/logout.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { isPlatformBrowser } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatPaginatorModule
   ],
   providers: [
+    {
+      provide: 'LOCAL_STORAGE',
+      useFactory: (platformId: Object) => {
+        return isPlatformBrowser(platformId) ? localStorage : null;
+      },
+      deps: [PLATFORM_ID],
+    },
     provideClientHydration(),
     {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true}
   ],

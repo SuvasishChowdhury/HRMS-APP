@@ -23,7 +23,10 @@ export class LoginComponent {
     username: '',
     password: ''
   }
-  constructor(@Inject(PLATFORM_ID) private platformId : object, private service: DataService, private router : Router){}
+  constructor(@Inject('LOCAL_STORAGE') private localStorage: Storage | null,
+              @Inject(PLATFORM_ID) private platformId : object, 
+              private service: DataService, 
+              private router : Router){}
   ngOnInit(){
 
   }
@@ -37,8 +40,8 @@ export class LoginComponent {
         this.jwt = data;
         if(this.jwt!.token != ''){
           if(isPlatformBrowser(this.platformId)){
-            localStorage.setItem('jwtToken', this.jwt!.token);
-            localStorage.setItem('employeeId', this.jwt!.employeeId);
+            this.localStorage!.setItem('jwtToken', this.jwt!.token);
+            this.localStorage!.setItem('employeeId', this.jwt!.employeeId);
             this.router.navigate(['layout/dashboard']);
           }
         }

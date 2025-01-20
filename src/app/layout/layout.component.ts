@@ -12,10 +12,12 @@ export class LayoutComponent {
 
   employee : Employee | null = null;
 
-  constructor(@Inject(PLATFORM_ID) private plartformId: object, private service: DataService){}
+  constructor(@Inject(PLATFORM_ID) private plartformId: object,
+              @Inject('LOCAL_STORAGE') private localStorage: Storage | null,
+              private service: DataService){}
   ngOnInit(){
-    if(isPlatformBrowser(this.plartformId)){
-      const eId = Number(localStorage.getItem('employeeId'));
+    if(this.localStorage){
+      const eId = Number(this.localStorage.getItem('employeeId'));
       console.log(eId);
       this.service.getEmployee(eId)
       .subscribe(x=>this.employee = x);

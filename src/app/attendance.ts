@@ -7,5 +7,5 @@ export interface Attendance {
     outTime: string,
     totalTime: number,
     attendanceStatus: number,
-    attendanceRemark: string
+    remarks: string,
 }

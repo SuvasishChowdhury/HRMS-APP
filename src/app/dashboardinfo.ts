@@ -1,6 +1,6 @@
 import { Attendance } from "./attendance";
 
-export interface Dashboardinfo {
+export interface DashboardVM {
     inTime: string;
     outTime: string;
     totalLeaveApplication: string,

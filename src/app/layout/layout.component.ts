@@ -16,7 +16,7 @@ export class LayoutComponent {
   constructor(@Inject(PLATFORM_ID) private plartformId: object,
               @Inject('LOCAL_STORAGE') private localStorage: Storage | null,
               private service: DataService){}
-  ngOnInit(){
+  ngOnInit(): void{
     if(this.localStorage){
       const eId = Number(this.localStorage.getItem('employeeId'));
       this.service.getEmployee(eId)

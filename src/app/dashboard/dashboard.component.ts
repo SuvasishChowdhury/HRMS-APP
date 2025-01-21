@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { DataService } from '../data.service';
 import { DashboardVM } from '../dashboardinfo';
 
@@ -9,17 +9,21 @@ import { DashboardVM } from '../dashboardinfo';
 })
 export class DashboardComponent {
   public dashboard : DashboardVM | null = null;
-  constructor(private service: DataService){}
+  constructor(private service: DataService,
+    @Inject('LOCAL_STORAGE') private localStorage : Storage | null
+  ){}
 
   ngOnInit(){
-    const empId = Number(localStorage.getItem('employeeId'));
-    this.service.getDashbordInfo(empId)
-    .subscribe({
-      next: (db) => {
-        this.dashboard = db;
-        console.log(db);
-        console.log(this.dashboard?.lastSevenDaysAttendance);
-      }
-    })
+    if(this.localStorage){
+      const empId = Number(localStorage.getItem('employeeId'));
+      this.service.getDashbordInfo(empId)
+      .subscribe({
+        next: (db) => {
+          this.dashboard = db;
+          console.log(db);
+          console.log(this.dashboard?.lastSevendDaysAttendance);
+        }
+      })
+    }
   }
 }

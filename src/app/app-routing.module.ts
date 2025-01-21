@@ -7,6 +7,7 @@ import path from 'path';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeinfoComponent } from './employeeinfo/employeeinfo.component';
+import { AttendancehistoryComponent } from './attendancehistory/attendancehistory.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // Default route
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },   // Child components
       { path: 'employeelist', component: EmployeelistComponent },
       { path: 'employeeinfo', component: EmployeeinfoComponent },
+      { path: 'attendancehistory', component: AttendancehistoryComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Default child route
     ],
   },

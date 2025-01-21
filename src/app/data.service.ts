@@ -5,7 +5,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { JWTTokenResponse } from './jwttoken-response';
 import { Login } from './login';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Dashboardinfo } from './dashboardinfo';
+import { DashboardVM } from './dashboardinfo';
+import { Attendance } from './attendance';
 
 // const appUrl = 'http://hrapi.beacontech.xyz/api';
 const appUrl = 'https://localhost:7133/api';
@@ -43,7 +44,11 @@ export class DataService {
     return this.employee.find(item=> item.id == id);
   }
 
-  public getDashbordInfo(id: number): Observable<Dashboardinfo>{
-    return this.http.get<Dashboardinfo>(`${appUrl}/hrms/dashboard/${id}`)
+  public getDashbordInfo(id: number): Observable<DashboardVM>{
+    return this.http.get<DashboardVM>(`${appUrl}/hrms/dashboard/${id}`)
+  }
+
+  public getAttendanceHistory(id: number): Observable<Attendance[]>{
+    return this.http.get<Attendance[]>(`${appUrl}/hrms/attendancehistory/${id}`)
   }
 }

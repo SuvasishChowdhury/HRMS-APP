@@ -14,6 +14,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { isPlatformBrowser } from '@angular/common';
+import { AttendancehistoryComponent } from './attendancehistory/attendancehistory.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { isPlatformBrowser } from '@angular/common';
     LoginComponent,
     LogoutComponent,
     LayoutComponent,
-    DashboardComponent
+    DashboardComponent,
+    AttendancehistoryComponent
   ],
   imports: [
     BrowserModule,

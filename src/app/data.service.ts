@@ -8,8 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DashboardVM } from './dashboardinfo';
 import { Attendance } from './attendance';
 
-// const appUrl = 'http://hrapi.beacontech.xyz/api';
-const appUrl = 'https://localhost:7133/api';
+const appUrl = 'http://hrapi.beacontech.xyz/api';
+// const appUrl = 'https://localhost:7133/api';
 
 @Injectable({
   providedIn: 'root'

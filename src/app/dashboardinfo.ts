@@ -7,5 +7,7 @@ export interface DashboardVM {
     totalPendingLeaveApplication: string,
     totalOtherApplication: string,
     totalOtherPendingApplication: string,
+    shiftStartTime : string,
+    shiftEndTime : string,
     lastSevendDaysAttendance:  Attendance[]
 }

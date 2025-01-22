@@ -35,7 +35,7 @@
             <!-- /.card-header -->
             <div class="card-body p-0">
               <div class="table-responsive">
-                <table class="table m-0">
+                <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>Name</th>
@@ -47,7 +47,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let attn of attendance" (click) = "selectedatten(attn.id)">
+                    <tr *ngFor="let attn of attnListForPagination" (click) = "selectedatten(attn.id)">
                       <td>{{attn.employeeName}}</td>
                       <td>{{attn.cardNo}}</td>
                       <td>{{attn.date}}</td>

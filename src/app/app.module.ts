@@ -1,5 +1,6 @@
 import { NgModule, PLATFORM_ID } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {MatDialog, matDialogAnimations, MatDialogModule} from "@angular/material/dialog";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { isPlatformBrowser } from '@angular/common';
 import { AttendancehistoryComponent } from './attendancehistory/attendancehistory.component';
+import { ShiftComponent } from './shift/shift.component';
+import { AttendanceprocessComponent } from './attendanceprocess/attendanceprocess.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { AttendancehistoryComponent } from './attendancehistory/attendancehistor
     LogoutComponent,
     LayoutComponent,
     DashboardComponent,
-    AttendancehistoryComponent
+    AttendancehistoryComponent,
+    ShiftComponent,
+    AttendanceprocessComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,8 @@ import { AttendancehistoryComponent } from './attendancehistory/attendancehistor
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     {
@@ -44,7 +51,8 @@ import { AttendancehistoryComponent } from './attendancehistory/attendancehistor
       deps: [PLATFORM_ID],
     },
     provideClientHydration(),
-    {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true},
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

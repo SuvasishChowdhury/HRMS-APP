@@ -28,11 +28,8 @@
                   <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
     
                   <div class="info-box-content">
-                    <span class="info-box-text">In Time</span>
-                    <span class="info-box-number">
-                      {{dashboard?.inTime}}
-                      <small></small>
-                    </span>
+                    <span class="info-box-number">In Time : {{dashboard?.inTime}}</span>
+                    <span class="info-box-text">Shift Start : {{dashboard?.shiftStartTime}}</span>
                   </div>
                   <!-- /.info-box-content -->
                 </div>
@@ -44,8 +41,8 @@
                   <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
     
                   <div class="info-box-content">
-                    <span class="info-box-text">Out Time</span>
-                    <span class="info-box-number">{{dashboard?.outTime}}</span>
+                    <span class="info-box-number">Out Time : {{dashboard?.outTime}}</span>
+                    <span class="info-box-text">Shift End: {{dashboard?.shiftEndTime}}</span>
                   </div>
                   <!-- /.info-box-content -->
                 </div>
@@ -151,7 +148,7 @@
               <!-- /.card-body -->
               <div class="card-footer clearfix">
                 <!-- <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a> -->
-                <a routerLink="attendancehistory" class="btn btn-sm btn-secondary float-right">View All Attendance</a>
+                <a (click) = "routePage()" class="btn btn-sm btn-secondary float-right">View All Attendance</a>
               </div>
               <!-- /.card-footer -->
             </div>
@@ -162,3 +159,4 @@
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
+       <router-outlet></router-outlet>

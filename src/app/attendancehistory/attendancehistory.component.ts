@@ -23,9 +23,12 @@ export class AttendancehistoryComponent {
     .subscribe({
       next:(attn) =>{
         this.attendance = attn;
-        console.log(attn);
+        this.totalItems = attn.length;
+        this.attnListForPagination = attn.slice(this.currentPage*this.pageSize,
+          this.currentPage*this.pageSize + this.pageSize
+        );
       }
-    })
+    });
   }
 
     pageChanged(event: PageEvent) {

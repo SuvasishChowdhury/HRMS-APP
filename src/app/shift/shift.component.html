@@ -1,0 +1,72 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Shift</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active">Shift List</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+       <section class="content">
+        <div class="container-fluid">
+                            <!-- TABLE: LATEST ORDERS -->
+        <div class="card">
+            <div class="card-header border-transparent">
+              <h3 class="card-title">Shift List</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table m-0">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>In Time (Grace)</th>
+                    <th>Out Time (Grace)</th>
+                    <th>Break Time</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let shift of shiftListForPagination" (click) = "selectedShift(shift.id)">
+                      <td>{{shift.name}}</td>
+                      <td>{{shift.startTime}}</td>
+                      <td>{{shift.endTime}}</td>
+                      <td>{{shift.graceInTime}}</td>
+                      <td>{{shift.graceInTime}}</td>
+                      <td>{{shift.breakTime}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            
+            <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="currentPage" (page)="pageChanged($event)">
+                      
+            </mat-paginator>
+            <!-- /.card-footer -->
+          </div>
+          <!-- /.card -->
+        </div>
+       </section>
+</div>

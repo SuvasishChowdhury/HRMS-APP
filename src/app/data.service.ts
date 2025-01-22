@@ -7,9 +7,10 @@ import { Login } from './login';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DashboardVM } from './dashboardinfo';
 import { Attendance } from './attendance';
+import { Shift } from './shift';
 
-const appUrl = 'http://hrapi.beacontech.xyz/api';
-// const appUrl = 'https://localhost:7133/api';
+// const appUrl = 'http://hrapi.beacontech.xyz/api';
+const appUrl = 'https://localhost:7133/api';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,9 @@ export class DataService {
     this.getEmployeeList().subscribe(s=> this.employee == s);
     return this.employee.find(item=> item.id == id);
   }
-
+  public getShift() : Observable<Shift[]>{
+    return this.http.get<Shift[]>(`${appUrl}/hrms/shift`);
+  }
   public getDashbordInfo(id: number): Observable<DashboardVM>{
     return this.http.get<DashboardVM>(`${appUrl}/hrms/dashboard/${id}`)
   }
@@ -51,4 +54,5 @@ export class DataService {
   public getAttendanceHistory(id: number): Observable<Attendance[]>{
     return this.http.get<Attendance[]>(`${appUrl}/hrms/attendancehistory/${id}`)
   }
+  
 }

@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { DataService } from '../data.service';
 import { DashboardVM } from '../dashboardinfo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,8 @@ import { DashboardVM } from '../dashboardinfo';
 export class DashboardComponent {
   public dashboard : DashboardVM | null = null;
   constructor(private service: DataService,
-    @Inject('LOCAL_STORAGE') private localStorage : Storage | null
+    @Inject('LOCAL_STORAGE') private localStorage : Storage | null,
+    private router : Router
   ){}
 
   ngOnInit(){
@@ -25,5 +27,8 @@ export class DashboardComponent {
         }
       })
     }
+  }
+  routePage(){
+    this.router.navigate(['layout/attendancehistory']);
   }
 }

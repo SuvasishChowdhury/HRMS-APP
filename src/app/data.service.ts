@@ -9,8 +9,8 @@ import { DashboardVM } from './dashboardinfo';
 import { Attendance } from './attendance';
 import { Shift } from './shift';
 
-// const appUrl = 'http://hrapi.beacontech.xyz/api';
-const appUrl = 'https://localhost:7133/api';
+const appUrl = 'http://hrapi.beacontech.xyz/api';
+// const appUrl = 'https://localhost:7133/api';
 
 @Injectable({
   providedIn: 'root'

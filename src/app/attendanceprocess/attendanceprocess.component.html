@@ -1,5 +1,22 @@
+
 <div class="content-wrapper">
-    <dialog type="modal" id="dialog" class="drawer" #dialog>
-        <ng-content></ng-content>
-      </dialog>
+  <h3>Attendance Process</h3>
+  <p>
+    <a routerLink="/layout/dashboard">Shipping Prices</a>
+  </p>
+  
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">  
+
+    <!-- <div class="p-fluid p-grid p-formgrid">
+      <div class="p-field p-col-12 p-md-4">
+        <label for="fromDate">From Date</label>
+        <p-calendar></p-calendar>
+      </div>
+      <div class="p-field p-col-12 p-md-4">
+        <label for="toDate">To Date</label>
+        <p-calendar [showTime]="true"></p-calendar>
+      </div>
+    </div> -->
+    <button class="button" type="submit">Process</button>  
+  </form>
 </div>

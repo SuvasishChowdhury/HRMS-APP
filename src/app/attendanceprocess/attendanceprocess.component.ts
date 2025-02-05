@@ -21,27 +21,8 @@ export class AttendanceprocessComponent {
   ngOnInit(): void{
   }
   onSubmit(): void {
-    // Process checkout data here
-    // this.items = this.service..clearCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
   }
-//   showPopup(Id : number){
-//     this.matDialog.open(AttendanceprocessComponent, {
-//         disableClose: true,
-//         width: "1200px",
-//         data: {
-//           Title: "im vuong le - dev VietNam",
-//           sepId:Id,
-//           Message: "test-dialog"
-//         },
-//       })
-//         .afterClosed()
-//         .subscribe((result) => {
-//           if (result == "Yes") {
-            
-//           }
-//         });
-// }
 
 }

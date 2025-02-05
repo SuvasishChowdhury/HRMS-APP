@@ -19,7 +19,6 @@ export class AttendanceprocessComponent {
   ){}
 
   ngOnInit(): void{
-    // this.showPopup(1);
   }
   onSubmit(): void {
     // Process checkout data here

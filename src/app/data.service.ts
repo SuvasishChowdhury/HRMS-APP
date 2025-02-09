@@ -53,6 +53,5 @@ export class DataService {
 
   public getAttendanceHistory(id: number): Observable<Attendance[]>{
     return this.http.get<Attendance[]>(`${appUrl}/hrms/attendancehistory/${id}`)
-  }
-  
+  }  
 }

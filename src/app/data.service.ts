@@ -12,8 +12,8 @@ import { Section } from './section';
 import { Sisterconcern } from './sisterconcern';
 import { Attnproc } from './attnproc';
 
-// const appUrl = 'http://hrapi.beacontech.xyz/api'; 
-const appUrl = 'https://localhost:7133/api';
+const appUrl = 'http://hrapi.beacontech.xyz/api'; 
+// const appUrl = 'https://localhost:7133/api';
 
 @Injectable({
   providedIn: 'root'

@@ -1,14 +1,15 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { Employee } from '../employee';
 import { DataService } from '../data.service';
+declare var $: any;
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent implements AfterViewInit {
 
   employee : Employee | null = null;
   imgSrc: string | undefined;
@@ -16,6 +17,8 @@ export class LayoutComponent {
   constructor(@Inject(PLATFORM_ID) private plartformId: object,
               @Inject('LOCAL_STORAGE') private localStorage: Storage | null,
               private service: DataService){}
+  
+  
   ngOnInit(): void{
     if(this.localStorage){
       const eId = Number(this.localStorage.getItem('employeeId'));
@@ -30,6 +33,11 @@ export class LayoutComponent {
         },
       });
     }
+  }
+
+  ngAfterViewInit(): void {
+    // Initialize AdminLTE treeview
+    $('[data-widget="treeview"]').Treeview('init');
   }
 
   ngOnDestroy(): void {

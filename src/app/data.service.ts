@@ -8,9 +8,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DashboardVM } from './dashboardinfo';
 import { Attendance } from './attendance';
 import { Shift } from './shift';
+import { Section } from './section';
+import { Sisterconcern } from './sisterconcern';
+import { Attnproc } from './attnproc';
 
-const appUrl = 'http://hrapi.beacontech.xyz/api'; 
-// const appUrl = 'https://localhost:7133/api';
+// const appUrl = 'http://hrapi.beacontech.xyz/api'; 
+const appUrl = 'https://localhost:7133/api';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +56,14 @@ export class DataService {
 
   public getAttendanceHistory(id: number): Observable<Attendance[]>{
     return this.http.get<Attendance[]>(`${appUrl}/hrms/attendancehistory/${id}`)
-  }  
+  }
+  public getSectionList(id : number): Observable<Section[]>{
+    return this.http.get<Section[]>(`${appUrl}/hrms/sectionlist/${id}`);
+  }
+  public getSisterConcernList(): Observable<Sisterconcern[]>{
+    return this.http.get<Sisterconcern[]>(`${appUrl}/hrms/sisterconcernlist`);
+  }
+  public startAttendanceProcess(attn : Attnproc): Observable<Attnproc> {
+    return this.http.post<Attnproc>(`${appUrl}/hrms/attenproc/`, attn);
+  }
 }

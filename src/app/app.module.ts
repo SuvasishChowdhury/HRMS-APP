@@ -19,6 +19,9 @@ import { AttendancehistoryComponent } from './attendancehistory/attendancehistor
 import { ShiftComponent } from './shift/shift.component';
 import { AttendanceprocessComponent } from './attendanceprocess/attendanceprocess.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 // import { CalendarModule } from "primeng/calendar";
 
@@ -42,7 +45,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppRoutingModule,
     HttpClientModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule, 
+    MatDatepickerModule
   ],
   providers: [
     {

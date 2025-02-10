@@ -42,7 +42,10 @@ export class LoginComponent {
           if(isPlatformBrowser(this.platformId)){
             this.localStorage!.setItem('jwtToken', this.jwt!.token);
             this.localStorage!.setItem('employeeId', this.jwt!.employeeId);
-            this.router.navigate(['layout/dashboard']);
+            // this.router.navigate(['layout/dashboard']);
+            this.router.navigate(['/layout']).then(() => {
+              this.router.navigate(['/layout/dashboard']);
+            });
           }
         }
       }, err => {

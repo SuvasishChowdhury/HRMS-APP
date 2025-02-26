@@ -34,56 +34,54 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
-              <div class="table-responsive">
-                <table id="example2" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Card No</th>
-                    <th>Date</th>
-                    <th>In Time</th>
-                    <th>Out Time</th>
-                    <th>Remarks</th>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Card No</th>
+                  <th>Date</th>
+                  <th>In Time</th>
+                  <th>Out Time</th>
+                  <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let attn of attnListForPagination" (click) = "selectedatten(attn.id)">
+                    <td>{{attn.employeeName}}</td>
+                    <td>{{attn.cardNo}}</td>
+                    <td>{{attn.date}}</td>
+                    <td>{{attn.inTime}}</td>
+                    <td>{{attn.outTime}}</td>
+                    <td>
+                      @if (attn.attendanceStatus == 1) {
+                        <div> 
+                          <span class="badge badge-success">{{attn.remarks}}</span>
+                        </div>
+                      }
+                      @else if (attn.attendanceStatus == 2 || attn.attendanceStatus == 21 || attn.attendanceStatus == 20) {
+                        <div> 
+                          <span class="badge badge-warning">{{attn.remarks}}</span>
+                        </div>
+                      }
+                      @else if (attn.attendanceStatus == 3) {
+                        <div> 
+                          <span class="badge badge-danger">{{attn.remarks}}</span>
+                        </div>
+                      }
+                      @else if (attn.attendanceStatus == 7) {
+                        <div> 
+                          <span class="badge badge-info">{{attn.remarks}}</span>
+                        </div>
+                      }
+                      @else{
+                        <div> 
+                          <span class="badge badge-secondary">{{attn.remarks}}</span>
+                        </div>
+                      }              
+                    </td>
                   </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let attn of attnListForPagination" (click) = "selectedatten(attn.id)">
-                      <td>{{attn.employeeName}}</td>
-                      <td>{{attn.cardNo}}</td>
-                      <td>{{attn.date}}</td>
-                      <td>{{attn.inTime}}</td>
-                      <td>{{attn.outTime}}</td>
-                      <td>
-                        @if (attn.attendanceStatus == 1) {
-                          <div> 
-                            <span class="badge badge-success">{{attn.remarks}}</span>
-                          </div>
-                        }
-                        @else if (attn.attendanceStatus == 2 || attn.attendanceStatus == 21 || attn.attendanceStatus == 20) {
-                          <div> 
-                            <span class="badge badge-warning">{{attn.remarks}}</span>
-                          </div>
-                        }
-                        @else if (attn.attendanceStatus == 3) {
-                          <div> 
-                            <span class="badge badge-danger">{{attn.remarks}}</span>
-                          </div>
-                        }
-                        @else if (attn.attendanceStatus == 7) {
-                          <div> 
-                            <span class="badge badge-info">{{attn.remarks}}</span>
-                          </div>
-                        }
-                        @else{
-                          <div> 
-                            <span class="badge badge-secondary">{{attn.remarks}}</span>
-                          </div>
-                        }              
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                </tbody>
+              </table>
               <!-- /.table-responsive -->
             </div>
             

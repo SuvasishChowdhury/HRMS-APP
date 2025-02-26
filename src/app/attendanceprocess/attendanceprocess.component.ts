@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
 import { DataService } from '../data.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -43,24 +43,16 @@ export class AttendanceprocessComponent {
       toDate: new FormControl('', Validators.required)
   });
   constructor(private service: DataService,
-    private formBuilder : FormBuilder
+    private formBuilder : FormBuilder,
+    private cdr : ChangeDetectorRef
   ){}
 
   ngOnInit(){
-    this.service.getSisterConcernList().subscribe(
-      {
-        next:(data)=>{
-          this.sisterConcernDD = data;
-        }
-      }
-    );
-    this.service.getShift().subscribe(
-      {
-        next:(data)=>{
-          this.shiftDD = data;
-        }
-      }
-    );
+    setTimeout(() => {
+      this.getSisterConcernDDL();
+      this.getShiftDDL();
+      this.cdr.detectChanges();
+    });
   }
   onSubmit() {
     if(this.attenProcess.valid){
@@ -85,18 +77,42 @@ export class AttendanceprocessComponent {
   update() {
     
   }
+
+  getSisterConcernDDL(){
+    this.service.getSisterConcernList().subscribe(
+      {
+        next:(data)=>{
+          this.sisterConcernDD = data;
+        }
+      }
+    );
+    this.cdr.detectChanges();
+  }
+  getShiftDDL(){
+    this.service.getShift().subscribe(
+      {
+        next:(data)=>{
+          this.shiftDD = data;
+        }
+      }
+    );
+    this.cdr.detectChanges();
+  }
   getSection(event: any) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     const id = Number(event.target.value);
     if(id > 0){
-      this.service.getSectionList(id).subscribe(
-        {
-          next:(data)=>{
-            
-            this.sectionlist = data;
+      setTimeout(() => {
+        this.service.getSectionList(id).subscribe(
+          {
+            next:(data)=>{
+              
+              this.sectionlist = data;
+            }
           }
-        }
-      )
+        ) 
+      });
     }
+    this.cdr.detectChanges();
   }
 }

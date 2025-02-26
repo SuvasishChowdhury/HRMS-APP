@@ -22,6 +22,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { CalendarComponent } from './calendar/calendar.component';
 
 // import { CalendarModule } from "primeng/calendar";
 
@@ -36,7 +37,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     DashboardComponent,
     AttendancehistoryComponent,
     ShiftComponent,
-    AttendanceprocessComponent
+    AttendanceprocessComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

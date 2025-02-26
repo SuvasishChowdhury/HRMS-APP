@@ -10,6 +10,7 @@ import { EmployeeinfoComponent } from './employeeinfo/employeeinfo.component';
 import { AttendancehistoryComponent } from './attendancehistory/attendancehistory.component';
 import { ShiftComponent } from './shift/shift.component';
 import { AttendanceprocessComponent } from './attendanceprocess/attendanceprocess.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // Default route
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'attendancehistory', component: AttendancehistoryComponent },
       { path: 'shift', component: ShiftComponent },
       { path: 'attendanceprocess', component: AttendanceprocessComponent },
+      { path: 'calendar', component: CalendarComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Default child route
     ],
   },

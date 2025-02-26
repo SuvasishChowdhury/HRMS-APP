@@ -19,8 +19,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css" integrity="sha512-PT0RvABaDhDQugEbpNMwgYBCnGCiTZMh9yOzUsJHDgl/dMhD9yjHAwoumnUk3JydV3QTcIkNDuN40CJxik5+WQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-responsive-bs4/3.0.3/responsive.bootstrap4.min.css" integrity="sha512-ZWTTZkTC1MyKezD1jATGpulgw++PL4gRHz/cZHm2zmihOzYL/s2WxaltU1opCAQ4//BtA7wz5zTKtwVzoT6fhw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-buttons-bs4/3.2.0/buttons.bootstrap4.min.css" integrity="sha512-qNtDBuFYo9mVabQAjUx6lkINdMFBFJm9HqOZcuFQPwU7ZavofmmrpUzC5LO6pltFCt6ggI+nRM7i83SEJpcJMA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.min.css" media="print" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed mat-typography">
   <app-root></app-root>
@@ -28,6 +33,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.10.1/browser/overlayscrollbars.browser.es6.min.js" integrity="sha512-bDTkSDb0/IRzL9tINJGwc2iQwmqVF3X9y7Doo7ZWvtfUM0y8Wuw1yqbYSPCBfVUBun64XIyPfXStDf9vc7cR8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js" integrity="sha512-KBeR1NhClUySj9xBB0+KRqYLPkM6VvXiiWaSz/8LCQNdRpUm38SWUrj0ccNDNSkwCD9qPA4KobLliG26yPppJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js" integrity="sha512-c5JDIvikBZ6tuz+OyaFsHKvuyg+tCug3hf41Vmmd5Yz9H5anj4vZOqlBV5PJoEbBJGFCgKoRT9YAgko4JS6/Qw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js" integrity="sha512-tBzZQxySO5q5lqwLWfu8Q+o4VkTcRGOeQGVQ0ueJga4A1RKuzmAu5HXDOXLEjpbKyV7ow9ympVoa6wZLEzRzDg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -43,6 +50,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-buttons/3.2.0/js/buttons.html5.js" integrity="sha512-CAwPD1Skk2dabEtDINpsZffgtgCrPCnkZV4W1xLbFmruBoY6CRXkhiP/n2iR9jlUfVkOLuVkWLv66JurTuVDTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-buttons/3.2.0/js/buttons.print.min.js" integrity="sha512-2Z5DG21Mo9I7ETDi1R4T5yK24NDuxcRCD6smo47+kImienWgFdBU5mg0cyLGaMwDitjb9UskfUEtji67if3Xnw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-buttons/3.2.0/js/buttons.colVis.min.js" integrity="sha512-Aco2AZMfg/w1xDL6ym1XZa0ghs/l66pUEOmmhQJ0Pd5BmgDgNWUncB1wyUO6dRm7MDf5WvO7AhKGtBfb+sYmgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
 <script>
   $(function () {
     $("#example1").DataTable({

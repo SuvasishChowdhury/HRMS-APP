@@ -38,6 +38,8 @@ export class LayoutComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     // Initialize AdminLTE treeview
     $('[data-widget="treeview"]').Treeview('init');
+    // $('#example1').DataTable();
+    // $('#example2').DataTable().columns.adjust();
   }
 
   ngOnDestroy(): void {

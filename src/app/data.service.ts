@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Employee } from './employee';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -12,8 +12,12 @@ import { Section } from './section';
 import { Sisterconcern } from './sisterconcern';
 import { Attnproc } from './attnproc';
 
-const appUrl = 'http://hrapi.beacontech.xyz/api'; 
-// const appUrl = 'https://localhost:7133/api';
+// const appUrl = 'http://hrapi.beacontech.xyz/api';
+const appUrl = 'https://localhost:7133/api';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +69,12 @@ export class DataService {
   }
   public startAttendanceProcess(attn : Attnproc): Observable<Attnproc> {
     return this.http.post<Attnproc>(`${appUrl}/hrms/attenproc/`, attn);
+  }
+  public logout(): Observable<any> {
+    return this.http.post(`${appUrl}/authentication/signout`, { }, httpOptions);
+  }
+
+  public refreshToken() {
+    return this.http.post(`${appUrl}/authentication/refreshtoken`, { }, httpOptions);
   }
 }

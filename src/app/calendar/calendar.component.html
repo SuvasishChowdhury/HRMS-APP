@@ -1,0 +1,236 @@
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" integrity="sha512-liDnOrsa/NzR+4VyWQ3fBzsDBzal338A1VfUpQvAcdt+eL88ePCOd3n9VQpdA0Yxi4yglmLy/AmH+Lrzmn0eMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.min.css" integrity="sha512-rXkN2PUQUcFEWfSXhdr0je8PHDqhcGHFYEUtRXHMJm//REdK7fEbCUlchurT/Ku9o/Y+bCO3xtnSlhdk0EEm/w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+
+<!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Calendar</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Calendar</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="sticky-top mb-3">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Draggable Events</h4>
+                </div>
+                <div class="card-body">
+                  <!-- the events -->
+                  <div id="external-events">
+                    <div class="external-event bg-success">Lunch</div>
+                    <div class="external-event bg-warning">Go home</div>
+                    <div class="external-event bg-info">Do homework</div>
+                    <div class="external-event bg-primary">Work on UI design</div>
+                    <div class="external-event bg-danger">Sleep tight</div>
+                    <div class="checkbox">
+                      <label for="drop-remove">
+                        <input type="checkbox" id="drop-remove">
+                        remove after drop
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Create Event</h3>
+                </div>
+                <div class="card-body">
+                  <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                    <ul class="fc-color-picker" id="color-chooser">
+                      <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
+                      <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
+                    </ul>
+                  </div>
+                  <!-- /btn-group -->
+                  <div class="input-group">
+                    <input id="new-event" type="text" class="form-control" placeholder="Event Title">
+
+                    <div class="input-group-append">
+                      <button id="add-new-event" type="button" class="btn btn-primary">Add</button>
+                    </div>
+                    <!-- /btn-group -->
+                  </div>
+                  <!-- /input-group -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card card-primary">
+              <div class="card-body p-0">
+                <!-- THE CALENDAR -->
+                <div id="calendar"></div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" integrity="sha512-hUhvpC5f8cgc04OZb55j0KNGh4eh7dLxd/dPSJ5VyzqDWxsayYbojWyl5Tkcgrmb/RVKCRJI1jNlRbVP4WWC4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js" integrity="sha512-iusSCweltSRVrjOz+4nxOL9OXh2UA0m8KdjsX8/KUUiJz+TCNzalwE0WE6dYTfHDkXuGuHq3W9YIhDLN7UNB0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   -->
+
+
+  <script>
+    $(document).ready(function () {
+        var date = new Date()
+        var d = date.getDate(),
+            m = date.getMonth(),
+            y = date.getFullYear();
+        display_events(parseInt(m + 1), y);
+    }); 
+    function display_events(m, y) {
+        var events = new Array();
+        $.ajax({
+            type: "GET",
+            url: "#",
+            datatype: "Json",
+            data: { month: m, year: y },
+            success: function (response) {
+                for (j of response) {
+                    for (i of j.holiDay) {
+                        events.push({
+                            event_id: 1,
+                            title: i.hoildayName,
+                            description: i.description,
+                            start: i.fromDate,
+                            end: i.toDate,
+                            backgroundColor: '#0073b7', //Blue
+                            borderColor: '#0073b7' //Blue
+                        });
+                    };
+                    for (i of j.offDay) {
+                        events.push({
+                            event_id: 2,
+                            title: i.title,
+                            description: i.description,
+                            start: i.applicableDate,
+                            end: i.applicableDate,
+                            backgroundColor: '#00a65a', //Success (green)
+                            borderColor: '#00a65a' //Success (green)
+                        });
+                    };
+                    events.push({
+                        start: '00:00:00',
+                        title: 'Weekend',
+                        description: j.description,
+                        dow: j.weekendDay,
+                        backgroundColor: '#f56954', //red
+                        borderColor: '#f56954', //red
+                        allDay: true
+                    });
+                }
+                $("#calendar").fullCalendar();
+                // $("#calendar").fullCalendar('removeEvents');
+                // $("#calendar").fullCalendar('addEventSource', events);
+                var calendar = $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    buttonText: {
+                        today: 'today',
+                        month: 'month',
+                        week: 'week',
+                        day: 'day'
+                    },
+                    timeZone: 'local',
+                    firstDay: 6,
+                    editable: false,
+                    selectable: true,
+                    selectHelper: true,
+                    select: function (start, end) {
+                        $('#event_start_date').val(moment(start).format('YYYY-MM-DD'));
+                        $('#event_end_date').val(moment(end).format('YYYY-MM-DD'));
+                        $('#event_entry_modal').modal('show');
+                    },
+                    events: events,
+                    eventColor: '#378006',
+                    eventRender: function (eventObj, $el) {
+                        $el.popover({
+                            animation: true,
+                            title: eventObj.title,
+                            content: eventObj.description,
+                            trigger: 'hover',
+                            placement: 'top',
+                            container: 'body'
+                        });
+                    },
+                    viewRender: function (view, element) {
+                        var b = $('#calendar').fullCalendar('getDate');
+                        var m = moment(b).format('MM');
+                        var y = moment(b).format('YYYY');
+                        display_events(m, y);
+                    },
+                    displayEventTime: false
+                });
+            },
+            error: function (xhr, status) {
+                alert(response.msg);
+            }
+        });
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: false 
+        });
+
+        calendar.render();
+
+        document.getElementById('prev').addEventListener('click', function () {
+            var b = $('#calendar').fullCalendar('getDate');
+            var m = moment(b).format('MM');
+            var y = moment(b).format('YYYY');
+            display_events(m, y);
+            calendar.prev(); 
+        });
+
+        document.getElementById('next').addEventListener('click', function () {
+            var b = $('#calendar').fullCalendar('getDate');
+            var m = moment(b).format('MM');
+            var y = moment(b).format('YYYY');
+            display_events(m, y);
+            calendar.next();
+        });
+
+    });
+</script>

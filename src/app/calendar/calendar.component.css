@@ -1,0 +1,9 @@
+/* ✅ Change Business Hours Background Color */
+.fc-body
+{
+  background-color: #FF0000
+}
+.fc-nonbusiness
+{
+  opacity:1;
+}

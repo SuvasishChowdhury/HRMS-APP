@@ -11,6 +11,7 @@ import { Shift } from './shift';
 import { Section } from './section';
 import { Sisterconcern } from './sisterconcern';
 import { Attnproc } from './attnproc';
+import { CalendarVM } from './calendar';
 
 // const appUrl = 'http://hrapi.beacontech.xyz/api';
 const appUrl = 'https://localhost:7133/api';
@@ -76,5 +77,9 @@ export class DataService {
 
   public refreshToken() {
     return this.http.post(`${appUrl}/authentication/refreshtoken`, { }, httpOptions);
+  }
+
+  public getCalendarInfo(id:number,month:number,year:number):Observable<CalendarVM[]>{
+    return this.http.get<CalendarVM[]>(`${appUrl}/hrms/getCalendarInfo/${id}/${month}/${year}`);
   }
 }

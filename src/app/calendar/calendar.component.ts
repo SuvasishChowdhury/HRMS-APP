@@ -97,7 +97,4 @@ export class CalendarComponent {
       };
     });
   }
-  // handleEventClick(info: any) {
-  //   alert('Event: ' + info.event.title);
-  // }
 }

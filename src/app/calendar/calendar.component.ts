@@ -89,7 +89,6 @@ export class CalendarComponent {
         selectable: true, // ✅ Allows date selection
         editable: true, // ✅ Allows dragging/resizing events
         events : this.events,
-        // eventClick: this.handleEventClick.bind(this) // ✅ Event click handler
         dayCellDidMount: (info: DayCellMountArg) => {
           if (this.weekendDay?.includes(info.date.getDay())) {
             info.el.style.backgroundColor = 'rgba(255, 99, 71, 0.3)'; // Light red background

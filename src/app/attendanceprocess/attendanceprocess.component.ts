@@ -99,7 +99,6 @@ export class AttendanceprocessComponent {
     this.cdr.detectChanges();
   }
   getSection(event: any) {
-    // console.log(event.target.value);
     const id = Number(event.target.value);
     if(id > 0){
       setTimeout(() => {
